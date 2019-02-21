@@ -6,7 +6,7 @@ export default class Document extends Component {
   render() {
     return (
       <Wrapper>
-        <Header textLabel="Legal Document" textTitle="Expense Policy" />
+        <Header textLabel="Expense Policy" textTitle="Expense Policy" />
         <p>
           Lorem ipsum dolor sit amet, veri omnis duo ex, eu vim integre dolores
           qualisque. Ex his magna similique, inermis detracto mel id, aeterno

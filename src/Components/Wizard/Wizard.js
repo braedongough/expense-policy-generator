@@ -20,12 +20,3 @@ export default class Wizard extends Component {
 const Wrapper = styled.div`
   border: 1px solid black;
 `;
-
-/* 
-What sub-components would be in the wizard component?
-
--Header > step count, H1 with title varying
-- form
-- BottomNav - back button, next button
-
-*/
