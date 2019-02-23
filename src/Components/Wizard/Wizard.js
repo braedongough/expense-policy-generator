@@ -6,11 +6,12 @@ class Wizard extends Component {
   componentDidMount() {
     this.props.getStepCount(React.Children.count(this.filteredChildren()));
   }
-  filteredChildren = () => {
-    return React.Children.toArray(this.props.children).filter(
+
+  filteredChildren = () =>
+    React.Children.toArray(this.props.children).filter(
       child => child.type.name === "Step"
     );
-  };
+
   render() {
     const { currentStep } = this.props;
     const children = React.Children.map(
@@ -20,7 +21,6 @@ class Wizard extends Component {
           isActive: currentStep === index + 1,
         })
     );
-    console.log(children, 1);
     return children;
   }
 }
@@ -39,27 +39,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Wizard);
-
-/* class Wizard extends Component {
-  componentDidMount() {
-    this.props.register(this.numberOfSteps(this.props.children))
-  }
-?why is the render function contained within the numberOfSteps method? Is that how it's passed the children argument? 
-  numberOfSteps = children => 
-    React.Children.toArray(children).filter(child => child.type === Step)
-      .length
-
-  render() {
-    const children = React.Children.map(
-      React.Children.toArray(this.props.children).filter(
-        child => child.type === Step
-      ),
-      (child, index) =>
-        React.cloneElement(child, {
-          isActive: this.props.currentStep === index + 1
-        })
-    )
-
-    return children
-  }
-} */
