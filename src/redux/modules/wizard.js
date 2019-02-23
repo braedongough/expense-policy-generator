@@ -1,14 +1,14 @@
 import { createActions } from "redux-actions";
 
-const GET_STEP_COUNT = "wizard/GET_STEP_COUNT";
-////const REGISTER_STEP_COUNT = "wizard/REGISTER_STEP_COUNT";
-const NEXT = "wizard/NEXT";
-const PREV = "wizard/PREV";
+//!const REGISTER_STEP_COUNT = "wizard/REGISTER_STEP_COUNT"; <- what is this actions meant to be for?
+export const GET_STEP_COUNT = "wizard/GET_STEP_COUNT";
+export const NEXT = "wizard/NEXT";
+export const PREV = "wizard/PREV";
 
 export const {
   wizard: { getStepCount, registerStepCount, next, prev },
 } = createActions({
-  [GET_STEP_COUNT]: numberOfSteps => numberOfSteps,
+  [GET_STEP_COUNT]: numberOfSteps => ({ numberOfSteps }),
   [NEXT]: () => ({ modifier: 1 }),
   [PREV]: () => ({ modifier: -1 }),
 });
