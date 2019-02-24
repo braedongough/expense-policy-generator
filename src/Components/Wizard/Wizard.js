@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { Formik, Field, Form } from "formik";
 import { wizardModule } from "../../redux/modules";
 
 const Wizard = ({ children, getStepCount, currentStep }) => {
@@ -12,11 +13,12 @@ const Wizard = ({ children, getStepCount, currentStep }) => {
     getStepCount(React.Children.count(filteredChildren()));
   });
 
-  return React.Children.map(filteredChildren(), (child, index) =>
-    React.cloneElement(child, {
-      isActive: currentStep === index + 1,
-    })
-  );
+  // return React.Children.map(filteredChildren(), (child, index) =>
+  //   React.cloneElement(child, {
+  //     isActive: currentStep === index + 1,
+  //   })
+  // );
+  return <Formik />;
 };
 
 const mapStateToProps = ({ wizard }) => ({

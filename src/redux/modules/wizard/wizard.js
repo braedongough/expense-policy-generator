@@ -1,6 +1,5 @@
 import { createActions, handleActions, combineActions } from "redux-actions";
 
-//!const REGISTER_STEP_COUNT = "wizard/REGISTER_STEP_COUNT"; <- what is this actions meant to be for?
 export const GET_STEP_COUNT = "wizard/GET_STEP_COUNT";
 export const NEXT = "wizard/NEXT";
 export const PREV = "wizard/PREV";
