@@ -1,32 +1,25 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { wizardModule } from "../../redux/modules";
 
-class Wizard extends Component {
-  componentDidMount() {
-    this.props.getStepCount(React.Children.count(this.filteredChildren()));
-  }
-
-  filteredChildren = () =>
-    React.Children.toArray(this.props.children).filter(
+const Wizard = ({ children, getStepCount, currentStep }) => {
+  const filteredChildren = () =>
+    React.Children.toArray(children).filter(
       child => child.type.name === "Step"
     );
 
-  render() {
-    const { currentStep } = this.props;
-    const children = React.Children.map(
-      this.filteredChildren(),
-      (child, index) =>
-        React.cloneElement(child, {
-          isActive: currentStep === index + 1,
-        })
-    );
-    return children;
-  }
-}
+  useEffect(() => {
+    getStepCount(React.Children.count(filteredChildren()));
+  });
+
+  return React.Children.map(filteredChildren(), (child, index) =>
+    React.cloneElement(child, {
+      isActive: currentStep === index + 1,
+    })
+  );
+};
 
 const mapStateToProps = ({ wizard }) => ({
-  numberOfSteps: wizard.numberOfSteps,
   currentStep: wizard.currentStep,
 });
 
