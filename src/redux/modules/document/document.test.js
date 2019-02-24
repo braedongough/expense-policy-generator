@@ -19,8 +19,8 @@ describe("ACTION CREATORS", () => {
       const state = documentReducer(undefined, "@@INIT");
       expect(state).toEqual({
         companyName: "",
-        numberOfEmployees: 0,
-        budget: 0,
+        numberOfEmployees: "",
+        budget: "",
         cannotReclaim: [],
       });
     });

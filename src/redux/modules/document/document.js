@@ -17,8 +17,8 @@ const documentReducer = handleActions(
   },
   {
     companyName: "",
-    numberOfEmployees: 0,
-    budget: 0,
+    numberOfEmployees: "",
+    budget: "",
     cannotReclaim: [],
   }
 );

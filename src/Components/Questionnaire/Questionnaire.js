@@ -1,20 +1,29 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Field } from "formik";
 import Header from "../Header/Header";
 import Wizard from "../Wizard/Wizard";
 import Step from "../Wizard/Step";
-import QuestionnaireNav from "./QuestionnaireNav";
 
 const Questionnaire = ({ currentStep }) => {
   return (
     <div>
       <Header textLabel={`Step ${currentStep}`} textTitle="Questionnaire" />
       <Wizard>
-        <Step>Butt</Step>
-        <Step>lasagne</Step>
-        <Step>Bill Murray</Step>
+        <Step>
+          <Field type="text" name="companyName" placeholder="Company Name" />
+        </Step>
+        <Step>
+          <Field
+            type="number"
+            name="numberOfEmployees"
+            placeholder="Number of Employees"
+          />
+        </Step>
+        <Step>
+          <Field type="number" name="budget" placeholder="budget" />
+        </Step>
       </Wizard>
-      <QuestionnaireNav />
     </div>
   );
 };

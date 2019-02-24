@@ -1,33 +1,73 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Formik, Field, Form } from "formik";
-import { wizardModule } from "../../redux/modules";
+import { Formik, Form } from "formik";
+import { wizardModule, documentModule } from "../../redux/modules";
+import Nav from "./FormNav";
 
-const Wizard = ({ children, getStepCount, currentStep }) => {
+const Wizard = ({
+  children,
+  getStepCount,
+  currentStep,
+  numberOfSteps,
+  document,
+  next,
+}) => {
   const filteredChildren = () =>
     React.Children.toArray(children).filter(
       child => child.type.name === "Step"
     );
 
+  const formData = () => document;
+
+  const handleSubmit = (values, actions) => {
+    const isLastPage = currentStep === numberOfSteps;
+    if (!isLastPage) {
+      next(values);
+      actions.setSubmitting(false);
+    } else {
+      console.log(currentStep, numberOfSteps);
+      setTimeout(() => {
+        alert(JSON.stringify(values, null, 2));
+        actions.setSubmitting(false);
+      }, 500);
+    }
+  };
+
   useEffect(() => {
     getStepCount(React.Children.count(filteredChildren()));
   });
 
-  // return React.Children.map(filteredChildren(), (child, index) =>
-  //   React.cloneElement(child, {
-  //     isActive: currentStep === index + 1,
-  //   })
-  // );
-  return <Formik />;
+  return (
+    <Formik
+      initialValues={formData()}
+      onSubmit={handleSubmit}
+      render={() => (
+        <Form>
+          {React.Children.map(filteredChildren(), (child, index) =>
+            React.cloneElement(child, {
+              isActive: currentStep === index + 1,
+            })
+          )}
+          <Nav />
+        </Form>
+      )}
+    />
+  );
 };
 
-const mapStateToProps = ({ wizard }) => ({
+const mapStateToProps = ({ wizard, document }) => ({
   currentStep: wizard.currentStep,
+  numberOfSteps: wizard.numberOfSteps,
+  document,
 });
 
 const mapDispatchToProps = dispatch => ({
   getStepCount: numberOfSteps =>
     dispatch(wizardModule.getStepCount(numberOfSteps)),
+  next: values => {
+    dispatch(documentModule.next(values));
+    dispatch(wizardModule.next());
+  },
 });
 
 export default connect(
