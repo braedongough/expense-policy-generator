@@ -5,14 +5,14 @@ export const NEXT = "document/NEXT";
 export const {
   document: { next },
 } = createActions({
-  [NEXT]: formValues => ({ formValues }),
+  [NEXT]: formValues => formValues,
 });
 
 const documentReducer = handleActions(
   {
     [NEXT]: (state, { payload }) => ({
       ...state,
-      ...payload.formValues,
+      ...payload,
     }),
   },
   {
