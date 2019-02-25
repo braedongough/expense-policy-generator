@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Formik, Form } from "formik";
 import { wizardModule, documentModule } from "../../redux/modules";
+import generatePDF from "../../utils/generatePDF";
 import Nav from "./FormNav";
 
 const Wizard = ({
@@ -25,9 +26,10 @@ const Wizard = ({
       next(values);
       actions.setSubmitting(false);
     } else {
-      console.log(currentStep, numberOfSteps);
+      const text = JSON.stringify(values, null, 2);
+      generatePDF(text);
       setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
+        alert(text);
         actions.setSubmitting(false);
       }, 500);
     }
