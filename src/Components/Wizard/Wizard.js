@@ -34,7 +34,9 @@ const Wizard = ({
   };
 
   useEffect(() => {
-    getStepCount(React.Children.count(filteredChildren()));
+    if (!numberOfSteps) {
+      getStepCount(React.Children.count(filteredChildren()));
+    }
   });
 
   return (

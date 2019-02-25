@@ -23,6 +23,9 @@ const Questionnaire = ({ currentStep }) => {
         <Step>
           <Field type="number" name="budget" placeholder="budget" />
         </Step>
+        <Step>
+          <Field type="email" name="email" placeholder="email" />
+        </Step>
       </Wizard>
     </div>
   );

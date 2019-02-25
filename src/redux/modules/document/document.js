@@ -15,12 +15,7 @@ const documentReducer = handleActions(
       ...payload,
     }),
   },
-  {
-    companyName: "",
-    numberOfEmployees: "",
-    budget: "",
-    cannotReclaim: [],
-  }
+  {}
 );
 
 export default documentReducer;

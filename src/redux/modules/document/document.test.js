@@ -17,12 +17,7 @@ describe("ACTION CREATORS", () => {
   describe("REDUCER", () => {
     it("should set default state", () => {
       const state = documentReducer(undefined, "@@INIT");
-      expect(state).toEqual({
-        companyName: "",
-        numberOfEmployees: "",
-        budget: "",
-        cannotReclaim: [],
-      });
+      expect(state).toEqual({});
     });
     it("should set state with form values", () => {
       const formValues = {
