@@ -30,9 +30,6 @@ const mapStateToProps = ({ wizard, policy }) => ({
 const mapDispatchToProps = dispatch => ({
   getStepCount: numberOfSteps =>
     dispatch(wizardModule.getStepCount(numberOfSteps)),
-  next: () => {
-    dispatch(wizardModule.next());
-  },
 });
 
 export default connect(
