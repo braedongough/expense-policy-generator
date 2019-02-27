@@ -1,4 +1,4 @@
-import documentReducer, * as document from "./document";
+import policyReducer, * as policy from "./policy";
 
 describe("ACTION CREATORS", () => {
   it("should generate NEXT action object", () => {
@@ -8,15 +8,15 @@ describe("ACTION CREATORS", () => {
       budget: 100020200,
       cannotReclaim: ["milage", "gambling"],
     };
-    const action = document.next(formValues);
+    const action = policy.next(formValues);
     expect(action).toEqual({
-      type: "document/NEXT",
+      type: "policy/NEXT",
       payload: formValues,
     });
   });
   describe("REDUCER", () => {
     it("should set default state", () => {
-      const state = documentReducer(undefined, "@@INIT");
+      const state = policyReducer(undefined, "@@INIT");
       expect(state).toEqual({});
     });
     it("should set state with form values", () => {
@@ -26,8 +26,8 @@ describe("ACTION CREATORS", () => {
         budget: 100020200,
         cannotReclaim: ["milage", "gambling"],
       };
-      const action = document.next(formValues);
-      const state = documentReducer(undefined, action);
+      const action = policy.next(formValues);
+      const state = policyReducer(undefined, action);
       expect(state).toEqual(formValues);
     });
     it("should update state with new form values", () => {
@@ -37,8 +37,8 @@ describe("ACTION CREATORS", () => {
         budget: 100020200,
         cannotReclaim: ["milage", "gambling"],
       };
-      const action = document.next({ companyName: "Spendesk" });
-      const state = documentReducer(initialState, action);
+      const action = policy.next({ companyName: "Spendesk" });
+      const state = policyReducer(initialState, action);
       expect(state).toEqual({
         ...initialState,
         companyName: "Spendesk",

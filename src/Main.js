@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Document from "./Components/Document/Document";
+import Policy from "./Components/Policy/Policy";
 import Questionnaire from "./Components/Questionnaire/Questionnaire";
 
 class Main extends Component {
@@ -8,7 +8,7 @@ class Main extends Component {
     return (
       <Container>
         <Questionnaire />
-        <Document />
+        <Policy />
       </Container>
     );
   }

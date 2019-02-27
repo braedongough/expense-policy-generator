@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import wizard, * as wizardModule from "./wizard/wizard";
-import document, * as documentModule from "./document/document";
+import policy, * as policyModule from "./policy/policy";
 
-export { wizardModule, documentModule };
+export { wizardModule, policyModule };
 
-export default combineReducers({ wizard, document });
+export default combineReducers({ wizard, policy });

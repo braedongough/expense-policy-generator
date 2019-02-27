@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Formik, Form } from "formik";
-import { wizardModule, documentModule } from "../../redux/modules";
+import { wizardModule, policyModule } from "../../redux/modules";
 import generatePDF from "../../utils/generatePDF";
 import Nav from "./FormNav";
 
@@ -10,7 +10,7 @@ const Wizard = ({
   getStepCount,
   currentStep,
   numberOfSteps,
-  document,
+  policy,
   next,
 }) => {
   const filteredChildren = () =>
@@ -18,7 +18,7 @@ const Wizard = ({
       child => child.type.name === "Step"
     );
 
-  const formData = () => document;
+  const formData = () => policy;
 
   const handleSubmit = (values, actions) => {
     const isLastPage = currentStep === numberOfSteps;
@@ -43,9 +43,18 @@ const Wizard = ({
 
   return (
     <Formik
-      initialValues={formData()}
-      onSubmit={handleSubmit}
-      render={() => (
+      initialValues={
+        {
+          // name: ''
+          // Braedon check here
+        }
+      }
+      onSubmit={values => {
+        // createpolicy(values) <= redux action
+
+        return console.log("values", values);
+      }}
+      render={({ values }) => (
         <Form>
           {React.Children.map(filteredChildren(), (child, index) =>
             React.cloneElement(child, {
@@ -59,17 +68,17 @@ const Wizard = ({
   );
 };
 
-const mapStateToProps = ({ wizard, document }) => ({
+const mapStateToProps = ({ wizard, policy }) => ({
   currentStep: wizard.currentStep,
   numberOfSteps: wizard.numberOfSteps,
-  document,
+  policy,
 });
 
 const mapDispatchToProps = dispatch => ({
   getStepCount: numberOfSteps =>
     dispatch(wizardModule.getStepCount(numberOfSteps)),
   next: values => {
-    dispatch(documentModule.next(values));
+    dispatch(policyModule.next(values));
     dispatch(wizardModule.next());
   },
 });

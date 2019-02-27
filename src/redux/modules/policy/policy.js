@@ -1,14 +1,14 @@
 import { createActions, handleActions } from "redux-actions";
 
-export const NEXT = "document/NEXT";
+export const NEXT = "policy/NEXT";
 
 export const {
-  document: { next },
+  policy: { next },
 } = createActions({
   [NEXT]: formValues => formValues,
 });
 
-const documentReducer = handleActions(
+const policyReducer = handleActions(
   {
     [NEXT]: (state, { payload }) => ({
       ...state,
@@ -18,4 +18,4 @@ const documentReducer = handleActions(
   {}
 );
 
-export default documentReducer;
+export default policyReducer;
