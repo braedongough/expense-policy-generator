@@ -8,6 +8,11 @@ import Nav from "./FormNav";
 import Wizard from "../Wizard/Wizard";
 import Step from "../Wizard/Step";
 
+/* 
+todo: add new actions to dynamically render paragraphs in policy component. Think of adding them as a template string. 
+todo: remove policy dispatch and map new actions
+*/
+
 const Questionnaire = ({ currentStep, next, numberOfSteps }) => {
   const handleSubmit = (values, actions) => {
     const isLastPage = currentStep === numberOfSteps;
@@ -78,6 +83,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(wizardModule.next());
   },
 });
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

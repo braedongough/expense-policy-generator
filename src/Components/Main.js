@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Policy from "./Components/Policy/Policy";
-import Questionnaire from "./Components/Questionnaire/Questionnaire";
+import Policy from "./Policy/Policy";
+import Questionnaire from "./Questionnaire/Questionnaire";
 
 class Main extends Component {
   render() {
