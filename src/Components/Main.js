@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { Hero } from "./shared";
+import { Hero, Banner } from "./shared";
 import Policy from "./Policy/Policy";
 import Questionnaire from "./Questionnaire/Questionnaire";
 
 const Main = () => (
   <>
+    <Banner />
     <Hero />
     <Container>
       <Questionnaire />
