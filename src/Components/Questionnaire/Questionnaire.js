@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Form, Formik, Field } from "formik";
 import generatePDF from "../../utils/generatePDF";
 import { wizardModule, policyModule } from "../../redux/modules";
-import Header from "../Header/Header";
+import { Header, Card } from "../shared/";
 import Nav from "./FormNav";
 import Wizard from "../Wizard/Wizard";
 import Step from "../Wizard/Step";
@@ -30,7 +30,7 @@ const Questionnaire = ({ currentStep, next, numberOfSteps }) => {
   };
 
   return (
-    <div>
+    <Card>
       <Header textLabel={`Step ${currentStep}`} textTitle="Questionnaire" />
       <Formik
         initialValues={{
@@ -68,7 +68,7 @@ const Questionnaire = ({ currentStep, next, numberOfSteps }) => {
           </Form>
         )}
       />
-    </div>
+    </Card>
   );
 };
 

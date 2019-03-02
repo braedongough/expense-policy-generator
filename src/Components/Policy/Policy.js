@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { first, second, third } from "../../redux/selectors/policy";
-import Header from "../Header/Header";
+import { Header, Card } from "../shared";
 import Placeholder from "./Placeholder";
 import { Paragraph, ParagraphList } from "./Paragraphs";
 
@@ -12,7 +12,7 @@ const Policy = ({
   currentStep,
 }) => {
   return (
-    <div>
+    <Card>
       <Header textLabel="Expense Policy" textTitle="Expense Policy" />
       <Placeholder visible={currentStep === 1} />
       <ParagraphList>
@@ -20,7 +20,7 @@ const Policy = ({
         <Paragraph text={secondParagraph} />
         <Paragraph text={thirdParagraph} />
       </ParagraphList>
-    </div>
+    </Card>
   );
 };
 

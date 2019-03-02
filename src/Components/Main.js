@@ -1,22 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
+import { Hero } from "./shared";
 import Policy from "./Policy/Policy";
 import Questionnaire from "./Questionnaire/Questionnaire";
 
-class Main extends Component {
-  render() {
-    return (
-      <Container>
-        <Questionnaire />
-        <Policy />
-      </Container>
-    );
-  }
-}
+const Main = () => (
+  <>
+    <Hero />
+    <Container>
+      <Questionnaire />
+      <Policy />
+    </Container>
+  </>
+);
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto auto;
   grid-gap: 10px;
 `;
 
