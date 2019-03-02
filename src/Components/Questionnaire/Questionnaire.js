@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Form, Formik, Field } from "formik";
+import styled from "styled-components";
 import generatePDF from "../../utils/generatePDF";
 import { wizardModule, policyModule } from "../../redux/modules";
 import { Header, Card } from "../shared/";
@@ -8,10 +9,9 @@ import Nav from "./FormNav";
 import Wizard from "../Wizard/Wizard";
 import Step from "../Wizard/Step";
 
-/* 
-todo: add new actions to dynamically render paragraphs in policy component. Think of adding them as a template string. 
-todo: remove policy dispatch and map new actions
-*/
+const QuestionnaireCard = styled(Card)`
+  width: 300px;
+`;
 
 const Questionnaire = ({ currentStep, next, numberOfSteps }) => {
   const handleSubmit = (values, actions) => {
@@ -30,7 +30,7 @@ const Questionnaire = ({ currentStep, next, numberOfSteps }) => {
   };
 
   return (
-    <Card>
+    <QuestionnaireCard>
       <Header textLabel={`Step ${currentStep}`} textTitle="Questionnaire" />
       <Formik
         initialValues={{
@@ -68,7 +68,7 @@ const Questionnaire = ({ currentStep, next, numberOfSteps }) => {
           </Form>
         )}
       />
-    </Card>
+    </QuestionnaireCard>
   );
 };
 

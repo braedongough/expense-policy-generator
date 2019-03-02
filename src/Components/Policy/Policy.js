@@ -1,9 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
 import { first, second, third } from "../../redux/selectors/policy";
 import { Header, Card } from "../shared";
 import Placeholder from "./Placeholder";
 import { Paragraph, ParagraphList } from "./Paragraphs";
+
+const PolicyCard = styled(Card)`
+  min-width: 500px;
+  max-width: 670px;
+`;
 
 const Policy = ({
   firstParagraph,
@@ -12,7 +18,7 @@ const Policy = ({
   currentStep,
 }) => {
   return (
-    <Card>
+    <PolicyCard>
       <Header textLabel="Expense Policy" textTitle="Expense Policy" />
       <Placeholder visible={currentStep === 1} />
       <ParagraphList>
@@ -20,7 +26,7 @@ const Policy = ({
         <Paragraph text={secondParagraph} />
         <Paragraph text={thirdParagraph} />
       </ParagraphList>
-    </Card>
+    </PolicyCard>
   );
 };
 

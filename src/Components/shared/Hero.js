@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Hero = styled.div`
   background: rgb(249, 233, 238);
-  height: 40vh;
+  height: 450px;
   font-weight: 100;
   text-align: center;
   top: 20;
