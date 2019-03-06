@@ -4,13 +4,14 @@ import { Form, Formik, Field } from "formik";
 import styled from "styled-components";
 import generatePDF from "../../utils/generatePDF";
 import { wizardModule, policyModule } from "../../redux/modules";
-import { Header, Card } from "../shared/";
+import { Title, Card, Label, StyledField } from "../../shared/";
 import Nav from "./FormNav";
 import Wizard from "../Wizard/Wizard";
 import Step from "../Wizard/Step";
 
 const QuestionnaireCard = styled(Card)`
-  width: 300px;
+  width: 250px;
+  min-height: ${({ theme }) => theme.sizing.minHeight};
 `;
 
 const Questionnaire = ({ currentStep, next, numberOfSteps }) => {
@@ -31,7 +32,9 @@ const Questionnaire = ({ currentStep, next, numberOfSteps }) => {
 
   return (
     <QuestionnaireCard>
-      <Header textLabel={`Step ${currentStep}`} textTitle="Questionnaire" />
+      <Title>
+        Question {currentStep}/{numberOfSteps}
+      </Title>
       <Formik
         initialValues={{
           companyName: "",
@@ -44,10 +47,14 @@ const Questionnaire = ({ currentStep, next, numberOfSteps }) => {
           <Form>
             <Wizard>
               <Step>
-                <Field
+                <Label htmlFor="companyName">
+                  What is the name of your company?
+                </Label>
+                <StyledField
+                  id="companyName"
                   type="text"
                   name="companyName"
-                  placeholder="Company Name"
+                  placeholder="Name of your company.."
                 />
               </Step>
               <Step>

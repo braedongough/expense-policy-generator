@@ -2,17 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { wizardModule } from "../../redux/modules";
-import { Button } from "../shared";
+import { Button } from "../../shared";
 
 const BackButton = styled(Button)`
-  background: rgb(249, 233, 238);
-  color: rgb(211, 211, 211);
+  background: ${({ theme }) => theme.colors.lightPink};
+  color: ${({ theme }) => theme.colors.lightGrey};
 `;
 
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding-top: 25px;
 `;
 
 const FormNav = ({ back }) => {

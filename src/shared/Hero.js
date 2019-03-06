@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const Hero = styled.div`
-  background: rgb(249, 233, 238);
-  height: 450px;
+  background: ${({ theme }) => theme.colors.lightPink};
+  height: 400px;
   font-weight: 100;
   text-align: center;
   top: 20;
