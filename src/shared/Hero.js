@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Hero = styled.div`
+const HeroContainer = styled.div`
   background: ${({ theme }) => theme.colors.lightPink};
   height: 400px;
   font-weight: 100;
@@ -20,11 +20,13 @@ const SubHeader = styled.p`
   font-size: 22px;
 `;
 
-export default () => (
-  <Hero>
+const Hero = () => (
+  <HeroContainer>
     <Header>Expense Policy Generator</Header>
     <SubHeader>
       Create an expense policy for your company with just a few clicks
     </SubHeader>
-  </Hero>
+  </HeroContainer>
 );
+
+export default Hero;
