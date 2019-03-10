@@ -4,7 +4,7 @@ import { Form, Formik, Field } from "formik";
 import styled from "styled-components";
 import generatePDF from "../../utils/generatePDF";
 import { wizardModule, policyModule } from "../../redux/modules";
-import { Title, Card, Label, StyledField } from "../../shared/";
+import { Title, Card, Label, StyledField } from "../../shared";
 import Nav from "./FormNav";
 import Wizard from "../Wizard/Wizard";
 import Step from "../Wizard/Step";
