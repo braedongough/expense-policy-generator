@@ -9,10 +9,8 @@ const Wizard = ({ children, getStepCount, currentStep, numberOfSteps }) => {
     );
 
   useEffect(() => {
-    if (!numberOfSteps) {
-      getStepCount(React.Children.count(filteredChildren()));
-    }
-  });
+    getStepCount(React.Children.count(filteredChildren()));
+  }, []);
   const steps = React.Children.map(filteredChildren(), (child, index) =>
     React.cloneElement(child, {
       isActive: currentStep === index + 1,
