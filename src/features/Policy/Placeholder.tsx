@@ -1,6 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 
-const Placeholder = ({ visible }) =>
+interface IProps {
+  visible?: boolean;
+}
+
+const Placeholder: FC<IProps> = ({ visible }) =>
   visible ? (
     <p>
       This is where your <strong>expense policy</strong> will appear

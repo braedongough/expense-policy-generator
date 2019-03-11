@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 
 const HeroContainer = styled.div`
@@ -20,7 +20,7 @@ const SubHeader = styled.p`
   font-size: 22px;
 `;
 
-const Hero = () => (
+const Hero: FC<{}> = () => (
   <HeroContainer>
     <Header>Expense Policy Generator</Header>
     <SubHeader>
