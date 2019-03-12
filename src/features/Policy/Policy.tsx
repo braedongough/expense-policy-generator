@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import { first, second, third } from "../../redux/selectors/policy";
 import { Title, Card } from "../../shared";
 import Placeholder from "./Placeholder";
 import { Paragraph, ParagraphList } from "./Paragraphs";

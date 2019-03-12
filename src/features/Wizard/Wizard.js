@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { wizardModule } from "../../redux/modules";
 
-const Wizard = ({ children, getStepCount, currentStep, numberOfSteps }) => {
+const Wizard = ({ children, getStepCount, currentStep }) => {
   const filteredChildren = () =>
     React.Children.toArray(children).filter(
       child => child.type.name === "Step"
